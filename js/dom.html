@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM & Event Handling</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Title Change -->
+        <h1 id="title">
+            YOUKOOOO JUST CLICK ON CHANGE
+        </h1>
+
+        <button onclick="changeTitle()">
+            Change
+        </button>
+        <!-- Messages -->
+        <p class="message">
+            Message from youukooo
+        </p>
+        <p class="message">
+            Message from chota
+        </p>
+        <button onclick="verify()">
+            Verify
+        </button>
+
+        <!-- Click Events -->
+        <h2>
+            Event Handling
+        </h2>
+        <button id="btn">
+            Click Me
+        </button>
+        <p id="show"></p>
+        <button id="btn1">
+            Double Click Me
+        </button>
+        <p id="show1"></p>
+
+        <!-- Mouse Events -->
+        <h2>
+            Mouse Events
+        </h2>
+
+        <div id="box" class="box">
+            Move Mouse Here
+        </div>
+        <!-- KEY Events -->
+        <h2>
+            KEY Events
+        </h2>
+        <div class="Newdata">
+            <input type="text" id="textinput" placeholder="Type something...">
+            <p id="keyOutput"></p><br>
+            <input type="text" id="textinput1" placeholder="Type something...">
+            <p id="keyOutput1"></p>
+            <br>
+            <input type="text" id="textinput2" placeholder="Type something...">
+            <p id="error"></p>
+            <button id="Addbtn">ADD ITEM</button>
+            <ul id="newList"></ul>
+        </div>
+    </div>
+
+    <script>
+        const tetxdata = document.getElementById("textinput2");
+        const Addbtn = document.getElementById("Addbtn")
+        const Ulist = document.getElementById("newList");
+        const error = document.getElementById("error");
+        Addbtn.addEventListener("click", function () {
+            const data = tetxdata.value;
+            if (data.trim() == "") {
+                error.textContent = "Please enter a valid item.";
+                error.style.color = "red";
+            } else {
+                //statement
+                const li = document.createElement("li");
+                //Assign the text
+                li.textContent = data;
+                //button for delete
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+                deleteBtn.addEventListener("click", function () {
+                    li.remove();
+                });
+                li.appendChild(deleteBtn);
+                Ulist.appendChild(li);
+                error.textContent = "";
+                tetxdata.value = "";
+            }
+        });
+
+        /* ==============================
+           KEY EVENTS
+        ============================== */
+        const textinput = document.getElementById("textinput");
+        const keyOutput = document.getElementById("keyOutput");
+        textinput.addEventListener("keydown", function (event) {
+            keyOutput.textContent = "key: " + event.key;
+        });
+
+
+        const textinput1 = document.getElementById("textinput1");
+        const keyOutput1 = document.getElementById("keyOutput1");
+        textinput1.addEventListener("keypress", function (event) {
+            keyOutput1.textContent = "key: " + event.key;
+        });
+        /* ==============================
+           MOUSE EVENTS
+        ============================== */
+        const box = document.getElementById("box");
+        box.addEventListener("mouseover", function () {
+            box.style.backgroundColor = "green";
+            box.innerHTML = "Mouse Over";
+        });
+        box.addEventListener("mouseout", function () {
+            box.style.backgroundColor = "lightblue";
+            box.innerHTML = "Mouse Out";
+        });
+        /* ==============================
+           DOUBLE CLICK EVENT
+        ============================== */
+        const btn1 = document.getElementById("btn1");
+        btn1.addEventListener("dblclick", function () {
+            alert("Button Double Clicked")
+            document.getElementById("show1").innerHTML =
+                "Button Double Clicked";
+        });
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", function () {
+            alert("Button Clicked");
+            document.getElementById("show").innerHTML =
+                "Button Clicked";
+        });
+        /* ==============================
+           CHANGE TITLE FUNCTION
+        ============================== */
+        function changeTitle() {
+            const data = document.getElementById("title");
+            console.log(data.innerHTML);
+            data.innerHTML =
+                "SUCCESSFULLY CHANGED REYYYY";
+            data.style.color = "pink";
+            data.style.fontSize = "20px";
+            data.style.backgroundColor = "black";
+        }
+        /* ==============================
+           VERIFY FUNCTION
+        ============================== */
+        function verify() {
+            const msg =
+                document.getElementsByClassName("message");
+            console.log("msg1: " + msg[0].innerHTML);
+            console.log("msg2: " + msg[1].innerHTML);
+            const Newdata =
+                document.getElementsByClassName("Newdata")[0];
+            Newdata.innerHTML =
+                "msg1: " + msg[0].innerHTML +
+                "<br>" +
+                "msg2: " + msg[1].innerHTML;
+            const tag =
+                document.getElementsByTagName("button");
+            console.log("Number of buttons: " + tag.length);
+        }        
+    </script>
+</body>
+
+</html>

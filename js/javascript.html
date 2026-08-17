@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Java Script</title>
+    <script>
+    var A=10;
+    console.log("A value= "+A);
+    var A=20;
+    console.log("A value= "+A);
+    A=30;
+    console.log("A value= "+A);
+    var st ="String";
+    var f =10.12;
+    var st=true;
+    let data = 108;
+    console.log("data value= "+data);
+    data=200;
+    console.log("data value= "+data);
+    //const keyword
+    const Studentname="AAAAAA";
+    console.log("Studentname value=  "+Studentname);
+//non-primitive data types
+const Student ={
+    Name:"chota",
+    Rollno:101,
+    Dept_name:"ACSE"
+}
+//functions
+        // function syntax
+       /* function functionname()
+        {
+            statements
+        }
+       function Math()
+       {*/
+        alert("Welcome to vignan");
+        window.alert("Welcome to vignan");
+       }
+       Math()
+       // function with parameters
+       function Math(a,b)
+       {
+        alert("results:"+(a+b));
+       
+       }
+       var a=10;
+       var b=10;
+       Math(a,b)
+
+       // admin login action
+       function adminLoginAction(uname,pwd)
+       {
+        if (uname=="Admin"&& pwd=="Admin")
+       {alert("Login successfully");}
+       else
+       {alert("Login unsuccess");}
+       }
+       let name="Admin";
+       let pwd="Admin";
+       adminLoginAction(name,pwd)
+
+       //Function Expression
+       const Student=function(a,b)
+       {
+        alert("result:"+(a+b));
+        return "Result:"+(a+b);
+       }
+       console.log(Student(10,90)) 
+       //arrow Function
+       const Squar=(n) => n*n;
+       console.log(Squar(4))
+
+       const multi=(a,b) => a*b;
+       console.log(multi(4,3))
+</script>
+</head>
+</html>
